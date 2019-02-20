@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17E2DC602F8D71F9C937A772 /* libPods-SideMenuControllerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF11B9C2B95A9F55C074B87 /* libPods-SideMenuControllerDemo.a */; };
 		BC748D62221CC97F00D9656F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC748D61221CC97F00D9656F /* AppDelegate.m */; };
 		BC748D65221CC97F00D9656F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC748D64221CC97F00D9656F /* ViewController.m */; };
 		BC748D68221CC97F00D9656F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC748D66221CC97F00D9656F /* Main.storyboard */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E4EDA7D7DDB37A73B1FB367 /* Pods-SideMenuControllerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SideMenuControllerDemo.release.xcconfig"; path = "Target Support Files/Pods-SideMenuControllerDemo/Pods-SideMenuControllerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		4076189473117086FEC16B66 /* Pods-SideMenuControllerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SideMenuControllerDemo.debug.xcconfig"; path = "Target Support Files/Pods-SideMenuControllerDemo/Pods-SideMenuControllerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		ABF11B9C2B95A9F55C074B87 /* libPods-SideMenuControllerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SideMenuControllerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC748D5D221CC97F00D9656F /* SideMenuControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SideMenuControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC748D60221CC97F00D9656F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BC748D61221CC97F00D9656F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -33,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17E2DC602F8D71F9C937A772 /* libPods-SideMenuControllerDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A8744DAA643076F11812F73 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4076189473117086FEC16B66 /* Pods-SideMenuControllerDemo.debug.xcconfig */,
+				2E4EDA7D7DDB37A73B1FB367 /* Pods-SideMenuControllerDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B9CAD5CB7DF5700F91A92C8D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABF11B9C2B95A9F55C074B87 /* libPods-SideMenuControllerDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BC748D54221CC97F00D9656F = {
 			isa = PBXGroup;
 			children = (
 				BC748D5F221CC97F00D9656F /* SideMenuControllerDemo */,
 				BC748D5E221CC97F00D9656F /* Products */,
+				5A8744DAA643076F11812F73 /* Pods */,
+				B9CAD5CB7DF5700F91A92C8D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +102,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC748D73221CC98100D9656F /* Build configuration list for PBXNativeTarget "SideMenuControllerDemo" */;
 			buildPhases = (
+				AD83E484E97D3F3729FC90C2 /* [CP] Check Pods Manifest.lock */,
 				BC748D59221CC97F00D9656F /* Sources */,
 				BC748D5A221CC97F00D9656F /* Frameworks */,
 				BC748D5B221CC97F00D9656F /* Resources */,
@@ -135,6 +160,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AD83E484E97D3F3729FC90C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SideMenuControllerDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BC748D59221CC97F00D9656F /* Sources */ = {
@@ -220,7 +270,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -273,7 +323,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -283,6 +333,7 @@
 		};
 		BC748D74221CC98100D9656F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4076189473117086FEC16B66 /* Pods-SideMenuControllerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +351,7 @@
 		};
 		BC748D75221CC98100D9656F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E4EDA7D7DDB37A73B1FB367 /* Pods-SideMenuControllerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

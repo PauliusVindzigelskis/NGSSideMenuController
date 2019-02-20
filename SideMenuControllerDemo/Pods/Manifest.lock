@@ -1,0 +1,23 @@
+PODS:
+  - Masonry (1.1.0)
+  - NGSSideMenuController (0.6.0):
+    - Masonry
+
+DEPENDENCIES:
+  - NGSSideMenuController (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Masonry
+
+EXTERNAL SOURCES:
+  NGSSideMenuController:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  NGSSideMenuController: 41ff7e6eccc82bdb7ff8fa049a03b5710ad10a57
+
+PODFILE CHECKSUM: 1b3fedd01c038d2f71f06e3738c72d2a5d118883
+
+COCOAPODS: 1.6.0

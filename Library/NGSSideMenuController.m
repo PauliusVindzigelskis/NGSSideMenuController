@@ -59,7 +59,7 @@
     
     if (index == NSNotFound)
     {
-        NSAssert(NO, "Add item before showing");
+        NSAssert(NO, @"Add item before showing");
         index = self.items.count;
         [self addItem:item];
     }
@@ -140,7 +140,7 @@
         CGFloat showingOffset = [self showingOffsetForItem:item];
         
         // Show up
-        void (^animations)() = ^() {
+        void (^animations)(void) = ^() {
             [rightConstraint setOffset:showingOffset];
             [item layoutIfNeeded];
             [self.presentingView layoutIfNeeded];
@@ -158,7 +158,7 @@
         }
         
     } else {
-        NSAssert(NO, "Set presentingView property before showing items");
+        NSAssert(NO, @"Set presentingView property before showing items");
     }
 }
 

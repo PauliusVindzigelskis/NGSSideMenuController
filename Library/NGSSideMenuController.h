@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NGSSideMenuItem.h"
+#import "NGSSideMenuItemAction.h"
 
 typedef NS_ENUM(NSUInteger, NGSSideMenuPosition)
 {

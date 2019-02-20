@@ -1,0 +1,29 @@
+{
+  "name": "NGSSideMenuController",
+  "version": "0.6.0",
+  "summary": "Side menu controller for popup items",
+  "description": "Framework to make nicely animated side menus",
+  "homepage": "https://github.com/PauliusVindzigelskis/NGSSideMenuController",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Paulius Vindzigelskis": "p.vindzigelskis@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/PauliusVindzigelskis/NGSSideMenuController.git",
+    "tag": "R0.6/0.6.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "Library/**/*.{h,m}",
+  "public_header_files": "Library/**/*.h",
+  "frameworks": "UIKit",
+  "dependencies": {
+    "Masonry": [
+
+    ]
+  }
+}

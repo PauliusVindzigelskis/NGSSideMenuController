@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 #s.screenshot       = 'https://user-images.githubusercontent.com/2383901/33856667-70c34d46-de8e-11e7-9ece-945037ca00de.gif'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Paulius Vindzigelskis' => 'p.vindzigelskis@gmail.com' }
-  s.source           = { :git => https://github.com/PauliusVindzigelskis/NGSSideMenuController.git', :tag => _tag }
+  s.source           = { :git => 'https://github.com/PauliusVindzigelskis/NGSSideMenuController.git', :tag => _tag }
 
   s.ios.deployment_target = '8.0'
 

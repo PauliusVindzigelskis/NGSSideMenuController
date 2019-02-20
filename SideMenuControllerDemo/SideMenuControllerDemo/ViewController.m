@@ -13,9 +13,12 @@
 @interface ViewController ()
     @property (strong, nonatomic) IBOutlet UIButton *showAllButton;
     @property (strong, nonatomic) IBOutlet UIButton *showMiddleButton;
-    
     @property (nonatomic, strong) NGSSideMenuController *sideMenu;
-    
+@property (strong, nonatomic) IBOutlet UILabel *dampingLabel;
+@property (strong, nonatomic) IBOutlet UISlider *dampingSlider;
+@property (strong, nonatomic) IBOutlet UILabel *animationDurationLabel;
+@property (strong, nonatomic) IBOutlet UISlider *animationDurationSlider;
+
 @end
 
 @implementation ViewController
@@ -27,6 +30,8 @@
     self.sideMenu.startOffset = 100.f;
     self.sideMenu.itemSpacing = 5.f;
     self.sideMenu.interItemShowDelay = 0.1f;
+    self.sideMenu.dampingMultiplier = self.dampingSlider.value;
+    self.sideMenu.showAnimationDuration = self.animationDurationSlider.value;
 }
 
 - (IBAction)segmentValueChanged:(UISegmentedControl *)sender {
@@ -34,14 +39,16 @@
 }
 - (IBAction)addItemPressed:(id)sender {
     
-    NSString *itemTitle = [NSString stringWithFormat:@"Item No. %li", self.sideMenu.items.count + 1];
-    NGSSideMenuItemAction *action = [NGSSideMenuItemAction actionWithTitle:itemTitle image:nil size:CGSizeZero handler:^(NGSSideMenuItemAction * _Nonnull a) {
+    NSInteger index = self.sideMenu.items.count % self.availableColors.count;
+    NSLog(@"%li", index);
+    UIColor *color = self.availableColors[index];
+    UIImage *image = [self imageFromColor:color size:CGSizeMake(40, 40)];
+    NGSSideMenuItemAction *action = [NGSSideMenuItemAction actionWithTitle:nil image:image size:CGSizeZero handler:^(NGSSideMenuItemAction * _Nonnull a) {
         [self.sideMenu hideItem:a animated:YES];
     }];
     [action setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.sideMenu addItem:action];
     [self.sideMenu showItem:action animated:YES];
-    NSLog(@"%@", action.debugDescription);
 }
     
 - (IBAction)showHideAllPressed:(UIButton*)sender {
@@ -91,6 +98,41 @@
         }
     }
     
+}
+- (IBAction)dampingValueChanged:(UISlider *)sender {
+    self.sideMenu.dampingMultiplier = sender.value;
+    self.dampingLabel.text = [NSString stringWithFormat:@"Damping %0.1f", sender.value];
+}
+- (IBAction)animationDurationValueChanged:(UISlider *)sender {
+    self.sideMenu.showAnimationDuration = sender.value;
+    self.animationDurationLabel.text = [NSString stringWithFormat:@"Animation %0.02fs", sender.value];
+    
+}
+
+#pragma mark - Tools
+
+- (NSArray<UIColor*>*) availableColors
+{
+    return @[
+             [UIColor blackColor],
+             [UIColor redColor],
+             [UIColor darkGrayColor],
+             [UIColor greenColor],
+             [UIColor grayColor],
+             [UIColor yellowColor],
+             [UIColor blueColor]
+    ];
+}
+
+- (UIImage *)imageFromColor:(UIColor *)color size:(CGSize)size {
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
     
 @end

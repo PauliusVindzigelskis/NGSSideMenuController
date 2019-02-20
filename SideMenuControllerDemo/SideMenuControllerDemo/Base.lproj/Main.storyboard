@@ -18,20 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5Uz-9o-iN7">
-                                <rect key="frame" x="68" y="493.5" width="239" height="153.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5Uz-9o-iN7">
+                                <rect key="frame" x="26" y="357.5" width="323" height="289.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dkD-LF-C4f">
-                                        <rect key="frame" x="0.0" y="0.0" width="239" height="48.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BYz-gi-CbN">
+                                        <rect key="frame" x="0.0" y="0.0" width="323" height="48.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbO-m5-LTH">
-                                                <rect key="frame" x="0.0" y="0.0" width="239" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Djx-LB-wjz">
+                                                <rect key="frame" x="0.0" y="0.0" width="323" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yae-8u-pUi">
-                                                <rect key="frame" x="0.0" y="20.5" width="239" height="29"/>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="k8Q-CX-r39">
+                                                <rect key="frame" x="0.0" y="20.5" width="323" height="29"/>
                                                 <segments>
                                                     <segment title="Left"/>
                                                     <segment title="Top"/>
@@ -39,27 +39,65 @@
                                                     <segment title="Bottom"/>
                                                 </segments>
                                                 <connections>
-                                                    <action selector="segmentValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="xSD-gG-tE2"/>
+                                                    <action selector="segmentValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="alV-qK-0cb"/>
                                                 </connections>
                                             </segmentedControl>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dkD-LF-C4f">
+                                        <rect key="frame" x="0.0" y="58.5" width="323" height="50.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Damping 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbO-m5-LTH">
+                                                <rect key="frame" x="0.0" y="0.0" width="323" height="20.5"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="McO-JW-BJD">
+                                                <rect key="frame" x="-2" y="20.5" width="327" height="31"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                <connections>
+                                                    <action selector="dampingValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="ZBV-nf-mwX"/>
+                                                </connections>
+                                            </slider>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LH4-rE-QUv">
+                                        <rect key="frame" x="0.0" y="119" width="323" height="50.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animation 0.3s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJl-fG-av7">
+                                                <rect key="frame" x="0.0" y="0.0" width="323" height="20.5"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.29999999999999999" minValue="0.01" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="HkH-Hq-Z9J">
+                                                <rect key="frame" x="-2" y="20.5" width="327" height="31"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                <connections>
+                                                    <action selector="animationDurationValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="nA5-XL-yPL"/>
+                                                </connections>
+                                            </slider>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BzJ-Pp-HkO">
-                                        <rect key="frame" x="0.0" y="53.5" width="239" height="30"/>
+                                        <rect key="frame" x="0.0" y="179.5" width="323" height="30"/>
                                         <state key="normal" title="Add Item"/>
                                         <connections>
                                             <action selector="addItemPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hs4-Fh-fIO"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mj5-1D-lAZ">
-                                        <rect key="frame" x="0.0" y="88.5" width="239" height="30"/>
+                                        <rect key="frame" x="0.0" y="219.5" width="323" height="30"/>
                                         <state key="normal" title="Hide All"/>
                                         <connections>
                                             <action selector="showHideAllPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d4h-Tx-XUx"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQq-Aq-ii6">
-                                        <rect key="frame" x="0.0" y="123.5" width="239" height="30"/>
+                                        <rect key="frame" x="0.0" y="259.5" width="323" height="30"/>
                                         <state key="normal" title="Hide All but middle"/>
                                         <connections>
                                             <action selector="showHideMiddlePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gHZ-aG-xyj"/>
@@ -76,6 +114,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="animationDurationLabel" destination="zJl-fG-av7" id="6XU-Pq-rqh"/>
+                        <outlet property="animationDurationSlider" destination="HkH-Hq-Z9J" id="gp9-DO-N9y"/>
+                        <outlet property="dampingLabel" destination="VbO-m5-LTH" id="VhD-bI-Nzp"/>
+                        <outlet property="dampingSlider" destination="McO-JW-BJD" id="D7B-un-lT1"/>
                         <outlet property="showAllButton" destination="Mj5-1D-lAZ" id="ueF-5F-fUe"/>
                         <outlet property="showMiddleButton" destination="dQq-Aq-ii6" id="grG-2P-m0k"/>
                     </connections>

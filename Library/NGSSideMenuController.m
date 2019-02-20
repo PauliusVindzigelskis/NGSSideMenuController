@@ -29,6 +29,11 @@
         _itemSpacing = 0.f;
         _position = NGSSideMenuPositionLeft;
         _startOffset = 0.f;
+        _dampingMultiplier = 1;
+        _showAnimationDuration = 0.3f;
+        _hideAnimationDuration = 0.3f;
+        _showAnimationOptions = UIViewAnimationOptionCurveEaseInOut;
+        _hideAnimationOptions = UIViewAnimationOptionCurveLinear;
     } return self;
 }
     
@@ -87,7 +92,7 @@
 -(void)hideItem:(UIView<NGSSideMenuItem>*)item animated:(BOOL)animated
 {
     MASConstraint *rightConstraint = self.sideConstraints[item];
-    void (^animations)() = ^() {
+    void (^animations)(void) = ^() {
         [rightConstraint setOffset:0];
         [item layoutIfNeeded];
         [self.presentingView layoutIfNeeded];
@@ -98,7 +103,7 @@
     
     if (animated)
     {
-        [UIView animateWithDuration:0.3 animations:animations completion:completion];
+        [UIView animateWithDuration:_hideAnimationDuration delay:0.f options:_hideAnimationOptions animations:animations completion:completion];
     } else {
         animations();
         completion(YES);
@@ -140,7 +145,13 @@
         CGFloat showingOffset = [self showingOffsetForItem:item];
         
         // Show up
-        void (^animations)(void) = ^() {
+        void (^intermediateAnimations)(void) = ^() {
+            [rightConstraint setOffset:showingOffset * self.dampingMultiplier];
+            [item layoutIfNeeded];
+            [self.presentingView layoutIfNeeded];
+        };
+        
+        void (^finalAnimations)(void) = ^() {
             [rightConstraint setOffset:showingOffset];
             [item layoutIfNeeded];
             [self.presentingView layoutIfNeeded];
@@ -151,9 +162,18 @@
         
         if (animated)
         {
-            [UIView animateWithDuration:0.3f animations:animations completion:completion];
+            if (self.dampingMultiplier != 1)
+            {
+                [UIView animateKeyframesWithDuration:_showAnimationDuration delay:0.f options:_showAnimationOptions animations:^{
+                    [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:0.5f animations:intermediateAnimations];
+                    [UIView addKeyframeWithRelativeStartTime:0.5f relativeDuration:0.5f animations:finalAnimations];
+                    
+                } completion:completion];
+            } else {
+                [UIView animateWithDuration:_showAnimationDuration delay:0.f options:_showAnimationOptions animations:finalAnimations completion:completion];
+            }
         } else {
-            animations();
+            finalAnimations();
             completion(YES);
         }
         

@@ -26,6 +26,11 @@ typedef NS_ENUM(NSUInteger, NGSSideMenuPosition)
 @property (nonatomic, assign) NSTimeInterval interItemShowDelay;
     @property (nonatomic, weak) UIView* presentingView;
     @property (nonatomic, assign) CGFloat startOffset;
+@property (nonatomic, assign) CGFloat dampingMultiplier;
+@property (nonatomic, assign) NSTimeInterval showAnimationDuration;
+@property (nonatomic, assign) NSTimeInterval hideAnimationDuration;
+@property (nonatomic, assign) UIViewAnimationOptions showAnimationOptions;
+@property (nonatomic, assign) UIViewAnimationOptions hideAnimationOptions;
     
 - (NSArray<UIView<NGSSideMenuItem>*>*) presentedItems;
 - (void) addItem:(UIView<NGSSideMenuItem>*)item;

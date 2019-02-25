@@ -19,15 +19,13 @@
 
 + (instancetype) actionWithTitle:(nullable NSString *)title
                            image:(nullable UIImage *)image
-                            size:(CGSize)size
                          handler:(nullable NGSItemHandler)handler
 {
     NGSSideMenuItemAction *action = [NGSSideMenuItemAction buttonWithType:UIButtonTypeCustom];
     [action setImage:image forState:UIControlStateNormal];
     [action setTitle:title forState:UIControlStateNormal];
     action.handler = handler;
-    
-    [action setupSize:size];
+    [action setupSize];
     [action layoutIfNeeded];
     
     if (handler)
@@ -46,21 +44,9 @@
     }
 }
 
-- (void) setupSize:(CGSize)s
+- (void) setupSize
 {
-    if (!CGSizeEqualToSize(s, CGSizeZero))
-    {
-        CGSize copySize = s;
-        self.translatesAutoresizingMaskIntoConstraints = NO;
-        [self mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(@(copySize.width));
-            make.height.equalTo(@(copySize.height));
-        }];
-        [self sizeToFit];
-        _size = s;
-    } else {
-        _size = self.intrinsicContentSize;
-    }
+    _size = self.intrinsicContentSize;
 }
     
 - (id)copyWithZone:(nullable NSZone *)zone

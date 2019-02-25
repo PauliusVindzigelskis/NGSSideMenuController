@@ -15,11 +15,10 @@ typedef void (^NGSItemHandler)(NGSSideMenuItemAction * _Nonnull);
 
 @interface NGSSideMenuItemAction : UIButton <NGSSideMenuItem>
 
-    @property(nonatomic, assign, readonly) CGSize size;
+@property(nonatomic, assign, readonly) CGSize size;
 
 + (instancetype) actionWithTitle:(nullable NSString *)title
                            image:(nullable UIImage *)image
-                            size:(CGSize)size
                          handler:(nullable NGSItemHandler)handler;
 
 @end

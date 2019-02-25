@@ -43,7 +43,7 @@
     NSLog(@"%li", index);
     UIColor *color = self.availableColors[index];
     UIImage *image = [self imageFromColor:color size:CGSizeMake(40, 40)];
-    NGSSideMenuItemAction *action = [NGSSideMenuItemAction actionWithTitle:nil image:image size:CGSizeZero handler:^(NGSSideMenuItemAction * _Nonnull a) {
+    NGSSideMenuItemAction *action = [NGSSideMenuItemAction actionWithTitle:nil image:image handler:^(NGSSideMenuItemAction * _Nonnull a) {
         [self.sideMenu hideItem:a animated:YES];
     }];
     [action setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
